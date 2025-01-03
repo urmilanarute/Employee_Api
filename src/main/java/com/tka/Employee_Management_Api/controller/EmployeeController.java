@@ -18,33 +18,32 @@ import com.tka.Employee_Management_Api.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
-	
+
 	@PostMapping("/AddEmployee")
 	public String AddEmployee(@RequestBody Employee employee) {
-		String msg=employeeService.AddEmployee(employee);
+		String msg = employeeService.AddEmployee(employee);
 		return msg;
-		
 	}
-	
 	@GetMapping("/getAllEmployee")
-	public List<Employee> getAllEmployee(){
+	public List<Employee> getAllEmployee() {
 		return employeeService.getAllEmployee();
-		
 	}
+
 	@GetMapping("/getbyid/{empid}")
 	public Employee getempbyid(@PathVariable int empid) {
 		return employeeService.getempbyid(empid);
-		
+
 	}
+
 	@DeleteMapping("/deleteemp/{empid}")
 	public String deleteemployee(@PathVariable int empid) {
 		return employeeService.deleteEmployee(empid);
-		
+
 	}
 
 	@PutMapping("/updateemp/{empid}")
-	public String updateemp(@PathVariable int empid,@RequestBody Employee employee) {
-		return employeeService.updateemp(empid,employee);
-		
+	public String updateemp(@PathVariable int empid, @RequestBody Employee employee) {
+		return employeeService.updateemp(empid, employee);
+
 	}
 }

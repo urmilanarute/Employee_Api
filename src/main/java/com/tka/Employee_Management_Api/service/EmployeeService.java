@@ -12,30 +12,33 @@ import com.tka.Employee_Management_Api.model.Employee;
 
 @Service
 public class EmployeeService {
-	
+
 	@Autowired
 	private EmployeeDao employeeDao;
-	
+
 	public String AddEmployee(Employee employee) {
-	String msg=employeeDao.AddEmployee(employee);
+		String msg = employeeDao.AddEmployee(employee);
 		return msg;
-		
+
 	}
-	public List<Employee> getAllEmployee(){
+
+	public List<Employee> getAllEmployee() {
 		return employeeDao.getAllEmpolyee();
-		
+
 	}
+
 	public Employee getempbyid(@PathVariable int empid) {
 		return employeeDao.getempbyid(empid);
-		
+
 	}
+
 	public String deleteEmployee(int empid) {
 		return employeeDao.deleteEmployee(empid);
-		
+
 	}
-	public String updateemp(@PathVariable int empid,@RequestBody Employee employee) {
+
+	public String updateemp(@PathVariable int empid, @RequestBody Employee employee) {
 		return employeeDao.updateemp(employee, empid);
-		
-		
+
 	}
 }
